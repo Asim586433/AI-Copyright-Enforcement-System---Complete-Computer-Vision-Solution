@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Copyright Enforcement System - Complete Computer Vision Solution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI Copyright Enforcement System 2026 | Next-Gen Computer Vision</title>
     <style>
         * {
             margin: 0;
@@ -11,304 +11,398 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --secondary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --dark-bg: #0f0f1e;
+            --card-bg: rgba(15, 15, 30, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(217, 70, 239, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            position: relative;
+            z-index: 1;
         }
 
+        /* Glass morphism header */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
+            background: rgba(15, 15, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 40px;
+            margin-bottom: 30px;
             text-align: center;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--neon-glow);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
 
         .header p {
-            opacity: 0.9;
-            font-size: 1.1em;
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            font-weight: 400;
         }
 
-        .content {
-            padding: 30px;
-        }
-
+        /* Premium tabs */
         .tabs {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 30px;
-            border-bottom: 2px solid #e0e0e0;
+            background: rgba(15, 15, 30, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 8px;
+            border-radius: 60px;
+            border: 1px solid var(--glass-border);
         }
 
         .tab {
-            padding: 12px 24px;
-            background: none;
+            padding: 14px 32px;
+            background: transparent;
             border: none;
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
-            color: #666;
-            transition: all 0.3s;
+            color: var(--text-secondary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .tab:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .tab:hover {
-            color: #667eea;
+            color: var(--text-primary);
         }
 
         .tab.active {
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
 
         .tab-content {
             display: none;
-            animation: fadeIn 0.5s;
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tab-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        /* Stats grid with neon cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Premium upload areas */
         .upload-area {
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 40px;
+            border: 2px dashed rgba(99, 102, 241, 0.5);
+            border-radius: 28px;
+            padding: 50px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
-            background: #f8f9ff;
+            transition: all 0.3s ease;
+            background: rgba(15, 15, 30, 0.4);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
         }
 
         .upload-area:hover {
-            background: #f0f2ff;
-            border-color: #764ba2;
+            border-color: #8b5cf6;
+            background: rgba(99, 102, 241, 0.1);
+            transform: scale(1.02);
         }
 
         .upload-area.drag-over {
-            background: #e8ebff;
-            border-color: #764ba2;
+            border-color: #d946ef;
+            background: rgba(217, 70, 239, 0.1);
+            transform: scale(1.05);
         }
 
+        /* Image grid with modern cards */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            max-height: 500px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            max-height: 600px;
             overflow-y: auto;
             padding: 10px;
         }
 
         .image-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
+            background: rgba(15, 15, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            background: white;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
         }
 
         .image-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.5);
         }
 
         .image-card img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
         }
 
         .image-info {
-            padding: 10px;
-            font-size: 0.85em;
-            background: white;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .image-name {
             font-weight: 600;
             margin-bottom: 5px;
-            word-break: break-all;
+            color: var(--text-primary);
+            font-size: 0.9em;
         }
 
+        /* Progress bar with gradient */
         .progress-bar {
             width: 100%;
-            height: 30px;
-            background: #e0e0e0;
-            border-radius: 15px;
+            height: 40px;
+            background: rgba(15, 15, 30, 0.6);
+            border-radius: 30px;
             overflow: hidden;
-            margin: 20px 0;
+            margin: 25px 0;
+            border: 1px solid var(--glass-border);
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.9em;
+            position: relative;
+            overflow: hidden;
         }
 
-        .results-table {
-            overflow-x: auto;
-            margin-top: 20px;
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 1.5s infinite;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        th {
-            background: #f8f9ff;
-            font-weight: 600;
-            color: #667eea;
-        }
-
-        tr:hover {
-            background: #f8f9ff;
-        }
-
-        .similarity-score {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-
-        .score-high {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .score-medium {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .score-low {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
+        /* Modern buttons */
         button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--primary-gradient);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 14px 32px;
+            border-radius: 40px;
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
         }
 
         button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-        }
-
-        .stat-label {
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        .alert {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-warning {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeeba;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+        /* Match pairs with premium styling */
         .match-pair {
             display: flex;
-            gap: 20px;
-            padding: 20px;
-            background: #f8f9ff;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            gap: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            margin-bottom: 25px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
+        }
+
+        .match-pair:hover {
+            transform: translateX(10px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .match-image {
@@ -318,18 +412,180 @@
 
         .match-image img {
             max-width: 100%;
-            max-height: 200px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-height: 250px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .match-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Similarity score badges */
+        .similarity-score {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .score-high {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .score-medium {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .score-low {
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            color: white;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Alert messages */
+        .alert {
+            padding: 18px 24px;
+            border-radius: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        /* Table styling */
+        .results-table {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(15, 15, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.1));
+            padding: 16px;
+            text-align: left;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+        }
+
+        tr:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        /* Loading spinner */
+        .loading {
+            text-align: center;
+            padding: 60px;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(99, 102, 241, 0.2);
+            border-top-color: #8b5cf6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Range slider styling */
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, #6366f1, #d946ef);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px #8b5cf6;
+            border: 2px solid #8b5cf6;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 15, 30, 0.4);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
         }
 
         @media (max-width: 768px) {
-            .image-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab {
+                flex: 1;
+                text-align: center;
+                padding: 10px 16px;
+                font-size: 0.9em;
             }
             
             .match-pair {
                 flex-direction: column;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -368,41 +624,43 @@
 
                 <div style="display: grid; gap: 30px;">
                     <div>
-                        <h3>📸 Original Content (Copyrighted Works)</h3>
+                        <h3 style="color: var(--text-primary); margin-bottom: 15px;">📸 Original Content (Copyrighted Works)</h3>
                         <div id="original-dropzone" class="upload-area" onclick="document.getElementById('original-input').click()">
-                            <p>📁 Click or drag & drop original images here</p>
-                            <small>Supports: JPG, PNG, WEBP, GIF | Max 50 images for demo</small>
+                            <p style="font-size: 2em; margin-bottom: 10px;">📁</p>
+                            <p style="color: var(--text-primary); margin-bottom: 8px;">Click or drag & drop original images here</p>
+                            <small style="color: var(--text-secondary);">Supports: JPG, PNG, WEBP, GIF | Max 50 images for demo</small>
                         </div>
                         <input type="file" id="original-input" multiple accept="image/*" style="display: none" onchange="handleOriginalUpload(this.files)">
                         <div id="original-grid" class="image-grid"></div>
                     </div>
 
                     <div>
-                        <h3>🔍 Infringing Content (Suspect Images)</h3>
+                        <h3 style="color: var(--text-primary); margin-bottom: 15px;">🔍 Infringing Content (Suspect Images)</h3>
                         <div id="infringing-dropzone" class="upload-area" onclick="document.getElementById('infringing-input').click()">
-                            <p>🔎 Click or drag & drop suspected infringing images here</p>
-                            <small>Social media, screenshots, web images, exhibition photos</small>
+                            <p style="font-size: 2em; margin-bottom: 10px;">🔎</p>
+                            <p style="color: var(--text-primary); margin-bottom: 8px;">Click or drag & drop suspected infringing images here</p>
+                            <small style="color: var(--text-secondary);">Social media, screenshots, web images, exhibition photos</small>
                         </div>
                         <input type="file" id="infringing-input" multiple accept="image/*" style="display: none" onchange="handleInfringingUpload(this.files)">
                         <div id="infringing-grid" class="image-grid"></div>
                     </div>
 
                     <div>
-                        <h3>📊 Generate Sample Dataset</h3>
+                        <h3 style="color: var(--text-primary); margin-bottom: 15px;">📊 Generate Sample Dataset</h3>
                         <button onclick="generateSampleDataset()">Generate Test Dataset (50 original + 200 modified)</button>
-                        <p style="margin-top: 10px; color: #666;">Creates sample images with various transformations for testing</p>
+                        <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.9em;">Creates sample images with various transformations for testing</p>
                     </div>
                 </div>
             </div>
 
             <!-- Process Tab -->
             <div id="process-tab" class="tab-content">
-                <h3>⚙️ Analysis Configuration</h3>
-                <div style="margin: 20px 0;">
-                    <label>Similarity Threshold: <span id="threshold-value">0.75</span></label>
-                    <input type="range" id="threshold-slider" min="0.5" max="0.95" step="0.01" value="0.75" style="width: 100%; margin: 10px 0;">
-                    <label>Top K Matches: <span id="topk-value">5</span></label>
-                    <input type="range" id="topk-slider" min="1" max="10" step="1" value="5" style="width: 100%; margin: 10px 0;">
+                <h3 style="color: var(--text-primary); margin-bottom: 20px;">⚙️ Analysis Configuration</h3>
+                <div style="margin: 25px 0;">
+                    <label style="color: var(--text-primary); display: block; margin-bottom: 10px;">Similarity Threshold: <span id="threshold-value" style="color: #8b5cf6; font-weight: 600;">0.75</span></label>
+                    <input type="range" id="threshold-slider" min="0.5" max="0.95" step="0.01" value="0.75">
+                    <label style="color: var(--text-primary); display: block; margin-top: 20px; margin-bottom: 10px;">Top K Matches: <span id="topk-value" style="color: #8b5cf6; font-weight: 600;">5</span></label>
+                    <input type="range" id="topk-slider" min="1" max="10" step="1" value="5">
                 </div>
 
                 <button id="process-btn" onclick="runSimilaritySearch()" style="width: 100%;">🚀 Run AI Similarity Detection</button>
@@ -411,7 +669,7 @@
                     <div class="progress-bar">
                         <div class="progress-fill" id="progress-fill">0%</div>
                     </div>
-                    <p id="progress-status">Initializing AI model...</p>
+                    <p id="progress-status" style="color: var(--text-secondary); text-align: center;">Initializing AI model...</p>
                 </div>
 
                 <div id="processing-results" style="margin-top: 30px;"></div>
@@ -420,13 +678,13 @@
             <!-- Results Tab -->
             <div id="results-tab" class="tab-content">
                 <div id="results-content">
-                    <p>Run analysis to see matching results</p>
+                    <div class="alert alert-warning">✨ Run analysis to see matching results</div>
                 </div>
             </div>
 
             <!-- Reports Tab -->
             <div id="reports-tab" class="tab-content">
-                <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+                <div style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
                     <button onclick="generateExcelReport()">📊 Generate Excel Report</button>
                     <button onclick="generatePDFReport()">📄 Generate PDF Report</button>
                     <button onclick="downloadAuditTrail()">📋 Download Audit Trail</button>
@@ -543,7 +801,7 @@
                     <img src="${img.data}" alt="${img.name}">
                     <div class="image-info">
                         <div class="image-name">${img.name.substring(0, 30)}</div>
-                        <small>ID: ${img.id.toString().slice(-6)}</small>
+                        <small style="color: var(--text-secondary);">ID: ${img.id.toString().slice(-6)}</small>
                     </div>
                 </div>
             `).join('');
@@ -805,7 +1063,7 @@
                     </div>
                 </div>
                 
-                <h3>Top Matches</h3>
+                <h3 style="color: var(--text-primary); margin: 30px 0 20px 0;">Top Matches</h3>
                 <div id="matches-list"></div>
             `;
             
@@ -820,19 +1078,19 @@
                     <div class="match-pair">
                         <div class="match-image">
                             <img src="${originalImg.data}" alt="${originalImg.name}">
-                            <p><strong>Original:</strong> ${originalImg.name}</p>
+                            <p style="margin-top: 12px; color: var(--text-primary);"><strong>Original:</strong> ${originalImg.name}</p>
                         </div>
                         <div class="match-image">
                             <img src="${infringingImg.data}" alt="${infringingImg.name}">
-                            <p><strong>Infringing:</strong> ${infringingImg.name}</p>
+                            <p style="margin-top: 12px; color: var(--text-primary);"><strong>Infringing:</strong> ${infringingImg.name}</p>
                         </div>
                         <div class="match-image">
-                            <div class="similarity-score ${scoreClass}" style="font-size: 24px; padding: 20px;">
+                            <div class="similarity-score ${scoreClass}" style="font-size: 28px; padding: 20px; margin-bottom: 15px;">
                                 ${(match.similarityScore * 100).toFixed(1)}%
                             </div>
-                            <p>Match ID: ${match.matchId.slice(-8)}</p>
-                            <p>Rank: #${match.rank}</p>
-                            ${match.similarityScore >= 0.9 ? '<p style="color: #155724;">🔔 HIGH CONFIDENCE - Legal Action Recommended</p>' : ''}
+                            <p style="color: var(--text-secondary); margin: 8px 0;">Match ID: ${match.matchId.slice(-8)}</p>
+                            <p style="color: var(--text-secondary); margin: 8px 0;">Rank: #${match.rank}</p>
+                            ${match.similarityScore >= 0.9 ? '<p style="color: #10b981; font-weight: 600; margin-top: 10px;">🔔 HIGH CONFIDENCE - Legal Action Recommended</p>' : ''}
                         </div>
                     </div>
                 `;
